@@ -7,3 +7,5 @@ basic_utilities:
   - zip
   - wget
   - xclip
+  - powerline
+  - fonts-powerline
