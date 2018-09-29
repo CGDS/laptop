@@ -1,0 +1,9 @@
+# A collection of basic utilities
+---
+
+- name: install basic utilities
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ basic_utilities }}"
+  become: yes
