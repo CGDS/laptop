@@ -9,3 +9,17 @@
   git:
     repo: https://github.com/rbenv/ruby-build.git 
     dest: ~/.rbenv/plugins/ruby-build
+
+- name: install rbenv-default-gems as plugin
+  git:
+    repo: https://github.com/rbenv/rbenv-default-gems.git
+    dest: ~/.rbenv/plugins/rbenv-default-gems
+
+- name: add default gems
+  copy:
+    dest: ~/.rbenv/default-gems
+    content: |
+      bundler
+      rails
+      rspec
+      pry
