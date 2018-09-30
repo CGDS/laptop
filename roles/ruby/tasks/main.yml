@@ -23,3 +23,7 @@
       rails
       rspec
       pry
+
+- name: install ruby versions
+  shell: "rbenv install {{ item }} -s && rbenv rehash"
+  with_items: "{{ ruby_versions }}"
