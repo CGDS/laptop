@@ -9,3 +9,4 @@ basic_utilities:
   - xclip
   - powerline
   - fonts-powerline
+  - silversearcher-ag
