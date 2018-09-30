@@ -1,0 +1,11 @@
+---
+
+- name: Add the Kevin Kelley emacs26 repository
+  apt_repository:
+    repo: ppa:kelleyk/emacs
+  become: yes
+
+- name: install emacs 26
+  apt:
+    name: emacs26
+  become: yes
