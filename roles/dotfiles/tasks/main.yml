@@ -5,7 +5,7 @@
     repo: ssh://git@github.com/CGDS/.dotdot
     dest: ~/.dotdot
 
-- name: "link {{ item }}"
+- name: "symlink dotfiles"
   file:
     src: "~/.dotdot/{{ item }}"
     dest: "~/{{ item }}"
