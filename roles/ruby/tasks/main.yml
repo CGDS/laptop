@@ -27,3 +27,6 @@
 - name: install ruby versions
   shell: "rbenv install {{ item }} -s && rbenv rehash"
   with_items: "{{ ruby_versions }}"
+
+- name: set global ruby version to latest install
+  shell: "rbenv global {{ ruby_versions[0] }}"
