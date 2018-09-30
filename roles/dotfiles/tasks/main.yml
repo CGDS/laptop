@@ -5,8 +5,10 @@
     repo: ssh://git@github.com/CGDS/.dotdot
     dest: ~/.dotdot
 
-- name: link .zshrc
+- name: "link {{ item }}"
   file:
-    src: ~/.dotdot/.zshrc
-    dest: ~/.zshrc
+    src: "~/.dotdot/{{ item }}"
+    dest: "~/{{ item }}"
     state: link
+  with_items: "{{ dotfiles_to_symlink }}"
+
