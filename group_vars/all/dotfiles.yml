@@ -1,7 +1,10 @@
 ---
 
 dotfiles_to_symlink:
+  - .zprofile
   - .zshrc
+  - .path
+  - .functions
   - .gitconfig
   - .fonts
   - .spacemacs
