@@ -1,0 +1,12 @@
+---
+
+- name: pull dotfiles from github
+  git:
+    repo: ssh://git@github.com/CGDS/.dotdot
+    dest: ~/.dotdot
+
+- name: link .zshrc
+  file:
+    src: ~/.dotdot/.zshrc
+    dest: ~/.zshrc
+    state: link
