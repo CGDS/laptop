@@ -23,7 +23,9 @@
       rails
       rspec
       pry
+      pry-doc
       rubocop
+      
 
 - name: install ruby versions & rehash rbenv
   shell: "rbenv install {{ item }} -s && rbenv rehash"
