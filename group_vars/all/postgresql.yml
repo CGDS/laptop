@@ -1,0 +1,7 @@
+---
+
+postgres_packages:
+  - postgresql-10
+  - postgresql-client-10
+  - libpq-dev
+  - postgresql-server-dev-10
