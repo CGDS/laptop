@@ -2,3 +2,9 @@
 
 - name: install SCSS-Lint for spacemacs integration
   shell: gem install scss_lint
+
+- name: install imagemagick
+  apt:
+    name: imagemagick
+  become: yes
+
