@@ -1,0 +1,6 @@
+---
+
+- name: install pg_ctlcluster & other scripts
+  apt:
+    name: postgresql-common
+  become: yes
