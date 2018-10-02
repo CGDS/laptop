@@ -4,3 +4,4 @@
 - import_playbook: zsh.yml
 - import_playbook: editor.yml
 - import_playbook: prog_langs.yml
+- import_playbook: databases.yml
