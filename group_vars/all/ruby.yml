@@ -3,3 +3,12 @@
 ruby_versions:
   - 2.5.1
   - 2.5.0
+
+default_gems:
+  - bundler
+  - rails
+  - rspec
+  - pry
+  - pry-doc
+  - rubocop
+  - ruby_parser
