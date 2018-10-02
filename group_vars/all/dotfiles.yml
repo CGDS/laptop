@@ -9,4 +9,6 @@ dotfiles_to_symlink:
   - .fonts
   - .spacemacs
   - .psqlrc
+  - .aspell.en.pws
+  - .aspell.en.prepl
   
