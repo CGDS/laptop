@@ -4,3 +4,9 @@
   apt:
     name: postgresql-common
   become: yes
+
+- name: install postgres 10
+  apt:
+    name: "{{ item }}"
+  become: yes
+  with_items: "{{ postgres_packages }}"
