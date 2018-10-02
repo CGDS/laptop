@@ -8,4 +8,5 @@ dotfiles_to_symlink:
   - .gitconfig
   - .fonts
   - .spacemacs
+  - .psqlrc
   
