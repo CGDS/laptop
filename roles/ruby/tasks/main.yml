@@ -25,6 +25,7 @@
       pry
       pry-doc
       rubocop
+      ruby_parser
       
 
 - name: install ruby versions & rehash rbenv
