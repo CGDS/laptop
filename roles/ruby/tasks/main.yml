@@ -17,12 +17,16 @@
   ignore_errors: true
 
 - name: install ruby versions & rehash rbenv
-  shell: "rbenv install {{ item[0] }} -s && rbenv rehash"
+  shell: "rbenv install {{ item[0] }}"
   when: item[1] is failed
-  register: ruby_installed
+  register: ruby_install
   with_nested:
     - "{{ ruby_versions }}"
     - "{{ ruby_present.results }}"
+
+- name: rehash rbenv
+  shell: rbenv rehash
+  when: ruby_install is succeeded
 
 # Install default gems without rbenv-default-gems so gems can be updated independently of ruby versions
 - name: install default gems
