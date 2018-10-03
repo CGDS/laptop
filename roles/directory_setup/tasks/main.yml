@@ -1,0 +1,11 @@
+---
+- name: make base code dir
+  file:
+    path: "/home/{{ local_username }}/code"
+    state: directory
+    owner: "{{ local_username }}"
+
+- name: pull org repo
+  git:
+    repo: ssh://git@github.com/CGDS/org
+    dest: ~/code/org
