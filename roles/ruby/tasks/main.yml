@@ -37,3 +37,4 @@
 
 - name: set global ruby version to latest install
   shell: "rbenv global {{ ruby_versions[0] }}"
+  when: ruby_install is succeeded 
