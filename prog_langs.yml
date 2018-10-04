@@ -4,3 +4,4 @@
   roles:
     - ruby
     - web_dev
+    - golang
