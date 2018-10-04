@@ -3,6 +3,7 @@
   get_url:
     url: "{{ golang_tarball_url }}"
     dest: /usr/local/src/{{ go_tarball }}
+    checksum: "{{ go_tarball_checksum }}"
   become: yes
 
 - name: Extract the golang tarball
