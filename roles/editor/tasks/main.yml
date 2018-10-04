@@ -14,3 +14,9 @@
   git:
     repo: https://github.com/syl20bnr/spacemacs
     dest: ~/.emacs.d
+
+- name: download reveal.js for org mode presentations
+  unarchive:
+    src: "https://github.com/hakimel/reveal.js/archive/3.7.0.zip"
+    dest: ~/code
+    remote_src: yes
