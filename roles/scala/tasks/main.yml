@@ -1,0 +1,33 @@
+---
+
+# The WSL issues should probably be fixed eventually maybe? https://github.com/Microsoft/WSL/issues/3286
+- name: Add the java 8 app repository
+  apt_repository:
+    repo: ppa:webupd8team/java
+  become: yes
+
+- name: Accept java 8 license
+  become: yes
+  debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+
+- name: Install java 8
+  apt:
+    name: oracle-java8-installer
+  become: yes
+
+- name: Add SBT repo
+  apt_repository: repo='deb https://dl.bintray.com/sbt/debian /' state=present update_cache=no
+  become: yes
+
+- name: Add sbt repo key
+  apt_key:
+    keyserver: 'hkp://keyserver.ubuntu.com:80'
+    id: '2EE0EA64E40A89B84B2DF73499E82A75642AC823'
+  become: yes
+
+- name: Install sbt
+  apt:
+    name: sbt
+    state: present
+    update_cache: yes
+  become: yes
