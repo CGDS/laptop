@@ -5,6 +5,7 @@ dotfiles_to_symlink:
   - .zshrc
   - .path
   - .functions
+  - .gitignore_global
   - .gitconfig
   - .fonts
   - .spacemacs
