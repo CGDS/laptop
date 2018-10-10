@@ -9,3 +9,5 @@
   git:
     repo: ssh://git@github.com/CGDS/org
     dest: ~/code/org
+  become: yes
+  become_user: "{{ local_username }}"

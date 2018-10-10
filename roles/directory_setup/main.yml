@@ -1,8 +1,0 @@
----
-- name: Create Code Dir
-  file: path=~/code state=directory
-
-- name: pull org repo
-  git:
-    repo: ssh://git@github.com/CGDS/org
-    dest: ~/code/org
