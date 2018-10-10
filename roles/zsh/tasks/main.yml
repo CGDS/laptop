@@ -5,6 +5,7 @@
     name: zsh
     state: latest
   become: yes
+  become_user: "{{ local_username }}"
   register: installation
 
 - name: change user's shell to zsh
@@ -12,7 +13,7 @@
     name: "{{ local_username }}"
     shell: /bin/zsh
   become: yes
-  become_user: root
+  become_user: "{{ local_username }}"
   when: installation is succeeded
 
 - name: Cloning oh-my-zsh
@@ -20,4 +21,6 @@
     repo=https://github.com/robbyrussell/oh-my-zsh
     dest=~/.oh-my-zsh
   register: cloning
+  become: yes
+  become_user: "{{ local_username }}"
 
