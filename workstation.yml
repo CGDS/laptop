@@ -2,7 +2,7 @@
 - import_playbook: base.yml
 - import_playbook: dotfiles.yml
 - import_playbook: zsh.yml
-- import_playbook: editor.yml
 - import_playbook: directory_setup.yml
+- import_playbook: editor.yml
 - import_playbook: prog_langs.yml
 - import_playbook: databases.yml
