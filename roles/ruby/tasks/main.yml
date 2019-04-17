@@ -4,17 +4,23 @@
   git:
     repo: https://github.com/rbenv/rbenv.git 
     dest: ~/.rbenv
+  become: yes
+  become_user: "{{ local_username }}"
 
 - name: install ruby-build as rbenv plugin
   git:
     repo: https://github.com/rbenv/ruby-build.git 
     dest: ~/.rbenv/plugins/ruby-build
+  become: yes
+  become_user: "{{ local_username }}"
 
 - name: check for installed rubies
   shell: "rbenv versions | grep {{ item }}"
   register: ruby_present
   with_items: "{{ ruby_versions }}"
   ignore_errors: true
+  become: yes
+  become_user: "{{ local_username }}"
 
 - name: install ruby versions & rehash rbenv
   shell: "rbenv install {{ item[0] }}"
@@ -23,10 +29,14 @@
   with_nested:
     - "{{ ruby_versions }}"
     - "{{ ruby_present.results }}"
+  become: yes
+  become_user: "{{ local_username }}"
 
 - name: rehash rbenv
   shell: rbenv rehash
   when: ruby_install is succeeded
+  become: yes
+  become_user: "{{ local_username }}"
 
 # Install default gems without rbenv-default-gems so gems can be updated independently of ruby versions
 - name: install default gems
@@ -34,7 +44,11 @@
   with_nested:
     - "{{ ruby_versions }}"
     - "{{ default_gems }}"
+  become: yes
+  become_user: "{{ local_username }}"
 
 - name: set global ruby version to latest install
   shell: "rbenv global {{ ruby_versions[0] }}"
   when: ruby_install is succeeded 
+  become: yes
+  become_user: "{{ local_username }}"
