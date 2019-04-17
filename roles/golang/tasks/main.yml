@@ -16,3 +16,4 @@
 - name: go get some common packages
   shell: "go get -u {{ item }}"
   with_items: "{{ go_get_things }}"
+  become: yes
