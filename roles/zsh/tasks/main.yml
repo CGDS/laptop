@@ -9,12 +9,9 @@
   register: installation
 
 - name: change user's shell to zsh
-  user:
-    name: "{{ local_username }}"
-    shell: /bin/zsh
   become: yes
-  become_user: "{{ local_username }}"
-  when: installation is succeeded
+  become_user: root
+  command: chsh -s /bin/zsh "{{ local_username }}"
 
 - name: Cloning oh-my-zsh
   git:
