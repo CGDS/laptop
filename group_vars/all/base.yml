@@ -16,3 +16,4 @@ basic_utilities:
   - zlib1g-dev
   - aspell
   - imagemagick
+  - vim
