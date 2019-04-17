@@ -2,9 +2,12 @@
 
 - name: install SCSS-Lint for spacemacs integration
   shell: gem install scss_lint
+  become: yes
+  become_user: "{{ local_username }}"
 
 - name: install imagemagick
   apt:
     name: imagemagick
   become: yes
+  become_user: "{{ local_username }}"
 
