@@ -24,7 +24,7 @@
 - name: check for installed rubies
   become: yes
   become_user: "{{ local_username }}"
-  shell: "rbenv versions | grep {{ item }}"
+  shell: "~/.rbenv/bin/rbenv versions | grep {{ item }}"
   register: ruby_present
   with_items: "{{ ruby_versions }}"
   ignore_errors: true
@@ -36,7 +36,7 @@
 - name: install ruby versions & rehash rbenv
   become: yes
   become_user: "{{ local_username }}"
-  shell: "rbenv install {{ item[0] }}"
+  shell: "~/.rbenv/bin/rbenv install {{ item[0] }}"
   when: item[1] is failed
   register: ruby_install
   environment:
@@ -48,7 +48,7 @@
 - name: rehash rbenv
   become: yes
   become_user: "{{ local_username }}"
-  shell: rbenv rehash
+  shell: ~./rbenv/bin/rbenv rehash
   when: ruby_install is succeeded
   environment:
     RBENV_SHELL: "zsh"
@@ -65,7 +65,7 @@
 - name: set global ruby version to latest install
   become: yes
   become_user: "{{ local_username }}"
-  shell: "rbenv global {{ ruby_versions[0] }}"
+  shell: "~/.rbenv/bin/rbenv global {{ ruby_versions[0] }}"
   when: ruby_install is succeeded 
   environment:
     RBENV_SHELL: "zsh"
