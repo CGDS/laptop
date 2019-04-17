@@ -2,6 +2,5 @@
 
 - name: install mysql
   apt:
-    name: "{{ item }}"
+    name: "{{ mysql_packages }}"
   become: yes
-  with_items: "{{ mysql_packages }}"
