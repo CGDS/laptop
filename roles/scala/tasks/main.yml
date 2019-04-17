@@ -6,13 +6,9 @@
     repo: ppa:webupd8team/java
   become: yes
 
-- name: Accept java 8 license
-  become: yes
-  debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
-
 - name: Install java 8
   apt:
-    name: oracle-java8-installer
+    name: openjdk-8-jdk
   become: yes
 
 - name: Add SBT repo
