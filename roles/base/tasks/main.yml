@@ -3,7 +3,6 @@
 
 - name: install basic utilities
   apt:
-    name: "{{ item }}"
+    name: "{{ basic_utilities }}"
     state: latest
-  with_items: "{{ basic_utilities }}"
   become: yes
