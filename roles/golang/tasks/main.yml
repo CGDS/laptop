@@ -14,7 +14,7 @@
   become: yes
 
 - name: go get some common packages
-  shell: "go get -u {{ item }}"
+  shell: "/usr/local/go get -u {{ item }}"
   with_items: "{{ go_get_things }}"
   become: yes
   become_user: "{{ local_username }}"
