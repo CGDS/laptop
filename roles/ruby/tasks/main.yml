@@ -33,7 +33,7 @@
 
 
 # TODO: rbenv not found till second run, probably need to init
-- name: install ruby versions & rehash rbenv
+- name: install ruby versions
   become: yes
   become_user: "{{ local_username }}"
   shell: "~/.rbenv/bin/rbenv install {{ item[0] }}"
@@ -48,7 +48,7 @@
 - name: rehash rbenv
   become: yes
   become_user: "{{ local_username }}"
-  shell: ~./rbenv/bin/rbenv rehash
+  shell: "~/.rbenv/bin/rbenv rehash"
   when: ruby_install is succeeded
   environment:
     RBENV_SHELL: "zsh"
