@@ -2,7 +2,7 @@
 
 - name: pull dotfiles from github
   git:
-    repo: https://github.com:CGDS/.dotdot.git
+    repo: https://github.com/CGDS/.dotdot.git
     dest: ~/.dotdot
   become: yes
   become_user: "{{ local_username }}"
