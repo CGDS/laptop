@@ -22,6 +22,8 @@
   with_items: "{{ ruby_versions }}"
   ignore_errors: true
 
+
+# TODO: rbenv not found till second run, probably need to init
 - name: install ruby versions & rehash rbenv
   become: yes
   become_user: "{{ local_username }}"
