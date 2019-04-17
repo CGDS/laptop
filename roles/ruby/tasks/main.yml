@@ -27,7 +27,7 @@
 - name: install ruby versions & rehash rbenv
   become: yes
   become_user: "{{ local_username }}"
-  shell: "rbenv install {{ item[0] }}"
+  shell: "eval \"$(Rbenv init -)\" && rbenv install {{ item[0] }}"
   when: item[1] is failed
   register: ruby_install
   with_nested:
