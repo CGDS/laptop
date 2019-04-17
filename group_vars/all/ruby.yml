@@ -12,3 +12,4 @@ default_gems:
   - pry-doc
   - rubocop
   - ruby_parser
+  - scss_lint
