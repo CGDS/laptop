@@ -1,0 +1,17 @@
+* The Laptop Script
+Or "How to rebuild Civilization after you've been forced to nuke it from orbit"
+
+* Assumptions
+  - You're installing this on Ubuntu 18.04
+  - You have no expectation that this will necessarily work for you
+  - You want to steal my dotfiles for some reason
+  - 
+
+* Usage
+  - install `git`
+  - Clone this repo
+  - `cd` in and run `./bootstrap`
+  - run `ansible-playbook workstation.yml -extra-vars '{"local_username":"<your user name>"}' --ask-become-pass`
+
+
+
