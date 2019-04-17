@@ -15,40 +15,40 @@
   become_user: "{{ local_username }}"
 
 - name: check for installed rubies
+  become: yes
+  become_user: "{{ local_username }}"
   shell: "rbenv versions | grep {{ item }}"
   register: ruby_present
   with_items: "{{ ruby_versions }}"
   ignore_errors: true
-  become: yes
-  become_user: "{{ local_username }}"
 
 - name: install ruby versions & rehash rbenv
+  become: yes
+  become_user: "{{ local_username }}"
   shell: "rbenv install {{ item[0] }}"
   when: item[1] is failed
   register: ruby_install
   with_nested:
     - "{{ ruby_versions }}"
     - "{{ ruby_present.results }}"
-  become: yes
-  become_user: "{{ local_username }}"
 
 - name: rehash rbenv
-  shell: rbenv rehash
-  when: ruby_install is succeeded
   become: yes
   become_user: "{{ local_username }}"
+  shell: rbenv rehash
+  when: ruby_install is succeeded
 
 # Install default gems without rbenv-default-gems so gems can be updated independently of ruby versions
 - name: install default gems
+  become: yes
+  become_user: "{{ local_username }}"
   shell: "~/.rbenv/versions/{{ item[0] }}/bin/gem install {{item[1]}}"
   with_nested:
     - "{{ ruby_versions }}"
     - "{{ default_gems }}"
-  become: yes
-  become_user: "{{ local_username }}"
 
 - name: set global ruby version to latest install
-  shell: "rbenv global {{ ruby_versions[0] }}"
-  when: ruby_install is succeeded 
   become: yes
   become_user: "{{ local_username }}"
+  shell: "rbenv global {{ ruby_versions[0] }}"
+  when: ruby_install is succeeded 
