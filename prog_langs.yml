@@ -3,7 +3,6 @@
 - hosts: localhost
   roles:
     - ruby
-    - web_dev
     - golang
     - scala
     - clojure
