@@ -17,7 +17,7 @@
 - name: load rbenv
   become: yes
   become_user: "{{ local_username }}"
-  shell: "eval \"$(rbenv init -)\""
+  shell: "export RBENV_SHELL=zsh && eval \"$(rbenv init -)\""
 
 - name: check for installed rubies
   become: yes
